@@ -18,21 +18,40 @@ public abstract class Student {
         this.courseList = new Course[6];
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
     public Student() {
         this.noOfCourses = 0;
         this.courseList = null;
     }
 
     // Register a course
-    public boolean registerCourse(Course c, double grade) {
+    public boolean registerCourse(Course c) {
         if (noOfCourses >= 6) {
             System.out.println("Cannot register more than 6 courses.");
             return false;
         }
         courseList[noOfCourses] = c;
-        grades[noOfCourses] = grade;
         noOfCourses++;
         return true;
+    }
+
+    public double[] getGrades() {
+        return grades;
+    }
+
+    public void setGrades(double grade, int idx) {
+        grades[idx] = grade;
     }
 
     // Get GPA

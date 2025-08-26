@@ -7,14 +7,13 @@ public class GeneralProgramStudent extends Student {
     }
 
     @Override
-    public boolean registerCourse(Course c, double grade) {
+    public boolean registerCourse(Course c) {
         if (noOfCourses >= 6) {
             System.out.println("Cannot register more than 6 courses.");
             return false;
         }
         if (this.level >= c.MinStudentLevel) {
             courseList[noOfCourses] = c;
-            grades[noOfCourses] = grade;
             noOfCourses++;
             return true;
         }

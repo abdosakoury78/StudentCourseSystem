@@ -10,6 +10,9 @@ package Main;
  */
 public class SpecialProgramStudent extends Student{
 
+    public SpecialProgramStudent(String name, String id, int level) {
+        super(name, id, level);
+    }    
     @Override
     public float calculateExpenses() {
         int sumOfCreditHours = 0;
