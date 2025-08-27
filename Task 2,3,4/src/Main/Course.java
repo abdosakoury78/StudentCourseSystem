@@ -9,13 +9,55 @@ package Main;
  * @author ZBOOK
  */
 public class Course {
-    String name;
-    String id;
-    int MinStudentLevel;
-    int CreditHours;
-    public String getCode(){
-        return id;
+    private String name;
+    private String code;
+    private int MinStudentLevel;
+    private int CreditHours;
+    private char ch;
+
+    public char getCh() {
+        return ch;
     }
+
+    public void setCh(char ch) {
+        this.ch = ch;
+    }
+
+    
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getMinStudentLevel() {
+        return MinStudentLevel;
+    }
+
+    public void setMinStudentLevel(int MinStudentLevel) {
+        this.MinStudentLevel = MinStudentLevel;
+    }
+
+    public int getCreditHours() {
+        return CreditHours;
+    }
+
+    public void setCreditHours(int CreditHours) {
+        this.CreditHours = CreditHours;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+    
+    
+    
     Course(){
 
     }
@@ -27,7 +69,7 @@ public class Course {
     }
     @Override
     public String toString() {
-        return "Course{" + "MinStudentLevel=" + MinStudentLevel + ", name=" + name + ", code=" + id + ", CreditHours=" + CreditHours + '}';
+        return "Course{" + "MinStudentLevel=" + MinStudentLevel + ", name=" + name + ", code=" + code + ", CreditHours=" + CreditHours + '}';
     }
 }
 

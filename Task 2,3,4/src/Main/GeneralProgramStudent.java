@@ -1,7 +1,6 @@
 package Main;
 
 public class GeneralProgramStudent extends Student {
-
     public GeneralProgramStudent(String name, String id, int level) {
         super(name, id, level);
     }
@@ -12,17 +11,17 @@ public class GeneralProgramStudent extends Student {
             System.out.println("Cannot register more than 6 courses.");
             return false;
         }
-        if (this.level >= c.MinStudentLevel) {
+        if (getLevel() >= c.getMinStudentLevel()) {
             courseList[noOfCourses] = c;
             noOfCourses++;
             return true;
         }
-        System.out.println("Level too low to register this course.");
+//        System.out.println("Level too low to register this course.");
         return false;
     }
 
     @Override
     public float calculateExpenses() {
-        return level * 1000.0f;
+        return getLevel() * 1000.0f;
     }
 }

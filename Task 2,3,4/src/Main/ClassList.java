@@ -10,8 +10,23 @@ package Main;
  */
 public class ClassList {
     public static Course searchCourse(String code) {
+        String name = "";
+        int level = 0;
+        char ch = '0';
+        char[] chars = code.toCharArray();
+        for(int i = 0; i < chars.length; i++) {
+            if(i == chars.length - 3) {
+                level = chars[chars.length - 1] - '0';
+                ch = chars[chars.length - 2];
+                break;
+            }
+            name += chars[i];
+        }
         for(Course c : COURSES) {
-            if(c.getCode().equals(code)) return c;
+            if(c.getName().equals(name) && c.getMinStudentLevel() == level && c.getCh() == ch) {
+                c.setCode(code);
+                return c;
+            }
         }
         return null;
     }

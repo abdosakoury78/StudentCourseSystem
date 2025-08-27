@@ -1,9 +1,9 @@
 package Main;
 
 public abstract class Student {
-    String name;
-    String id;
-    int level;
+    private String name;
+    private String id;
+    private int level;
     double[] grades;
     Course[] courseList;
     int noOfCourses;
@@ -29,6 +29,7 @@ public abstract class Student {
     public int getLevel() {
         return level;
     }
+    
 
     public Student() {
         this.noOfCourses = 0;
@@ -85,8 +86,8 @@ public abstract class Student {
 
         for (int i = 0; i < noOfCourses; i++) {
             double gpa = getCourseGPA(grades[i]);
-            totalPoints += gpa * courseList[i].CreditHours;
-            totalCreditHours += courseList[i].CreditHours;
+            totalPoints += gpa * courseList[i].getCreditHours();
+            totalCreditHours += courseList[i].getCreditHours();
         }
 
         if (totalCreditHours == 0) return 0.0;

@@ -28,8 +28,12 @@ public class Main {
         for(int i = 0; i < n; i++) {
             Student s;
             System.out.println("\nStudent " + (i+1) + ":");
-            System.out.print("Enter student type (0: general, 1: special): ");
-            int type = in.nextInt();
+            int type;
+            while(true) {
+                System.out.print("Enter student type (0: general, 1: special): ");
+                type = in.nextInt();       
+                if(type == 0 || type == 1) break;
+            }
             in.nextLine();
             
             System.out.print("Enter Name: ");
@@ -38,8 +42,12 @@ public class Main {
             System.out.print("Enter ID: ");
             String id = in.nextLine();    
             
-            System.out.print("Enter student level: ");
-            int level = in.nextInt();
+            int level;
+            while(true) {
+                System.out.print("Enter student level: ");
+                level = in.nextInt();
+                if(level > 0 && level < 5) break;
+            }
             in.nextLine();
             
             if(type == 0) s = new GeneralProgramStudent(name, id, level);
@@ -52,10 +60,34 @@ public class Main {
             for(int j = 0; j < NumOfCourses; j++) {
                 System.out.println("\nCourse " + (j+1) + ":\nCode: ");
                 String code = in.nextLine();
+                Course course = ClassList.searchCourse(code);
                 
-                Course c = ClassList.searchCourse(code);
+                if(course == null) {
+                    System.out.println("Error: Course is Not Found");
+                    continue;
+                }
+                
+                boolean regist = s.registerCourse(course);
+                if(!regist) {
+                    System.out.println("Level too low to register this course.");
+                }else {
+                    System.out.print("Enter grade: ");
+                    double grade = in.nextDouble();
+                    in.nextLine();
+                    s.setGrades(grade, s.noOfCourses - 1);
+                }
             }
+            students.add(s);
         }
+        for (Student st : students) {
+        System.out.println("\n=============================");
+        System.out.println("Name: " + st.getName());
+        System.out.println("ID: " + st.getId());
+        System.out.println("Level: " + st.getLevel());
+        st.printRegisteredCourses();
+        System.out.println("Expenses: " + st.calculateExpenses());
+        System.out.println("Total GPA: " + st.getTotalGPA());
+    }
     }
     
 }

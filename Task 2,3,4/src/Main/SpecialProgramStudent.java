@@ -17,7 +17,7 @@ public class SpecialProgramStudent extends Student{
     public float calculateExpenses() {
         int sumOfCreditHours = 0;
         for(int i = 0; i < noOfCourses; i++) {
-            sumOfCreditHours += courseList[i].CreditHours;
+            sumOfCreditHours += courseList[i].getCreditHours();
         }
         return sumOfCreditHours * 500;
     }
