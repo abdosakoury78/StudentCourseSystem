@@ -9,25 +9,29 @@ package Main;
  * @author ZBOOK
  */
 public class ClassList {
-    public static final Course[] COURSES = {
-//        new NormalCourse("Math", 1, 2),
-//        new NormalCourse("Programming_1", 1, 3),
-//        new NormalCourse("Technical_Writing", 1, 3),
-//        new NormalCourse("Electronics", 2, 4),
-//        new NormalCourse("Data_Structures", 2, 3),
-//        new NormalCourse("OOP", 2, 3),
-//        new NormalCourse("Algorithms", 3, 2),
-//        new NormalCourse("Operating_Systems", 3, 3),
-//        new NormalCourse("Databases", 3, 3),
-//        new NormalCourse("Machine_Learning", 4, 3),
-//        new NormalCourse("Compilers", 4, 4),
-//        new NormalCourse("Programming_Concepts", 4, 4),
-//        new SummerCourse("Math", 1, 2),
-//        new SummerCourse("Compilers", 4, 4),
-//        new SummerCourse("Algorithms", 3, 2),
-//        new SummerCourse("OOP", 2, 3)
-    };
     public static Course searchCourse(String code) {
+        for(Course c : COURSES) {
+            if(c.getCode().equals(code)) return c;
+        }
         return null;
     }
+    public static final Course[] COURSES = {
+       new normalcourse("Math", 1, 2),
+       new normalcourse("Programming_1", 1, 3),
+       new normalcourse("Technical_Writing", 1, 3),
+       new normalcourse("Electronics", 2, 4),
+       new normalcourse("Data_Structures", 2, 3),
+       new normalcourse("OOP", 2, 3),
+       new normalcourse("Algorithms", 3, 2),
+       new normalcourse("Operating_Systems", 3, 3),
+       new normalcourse("Databases", 3, 3),
+       new normalcourse("Machine_Learning", 4, 3),
+       new normalcourse("Compilers", 4, 4),
+       new normalcourse("Programming_Concepts", 4, 4),
+       new summercourse("Math", 1, 2),
+       new summercourse("Compilers", 4, 4),
+       new summercourse("Algorithms", 3, 2),
+       new summercourse("OOP", 2, 3)
+
+    };
 }

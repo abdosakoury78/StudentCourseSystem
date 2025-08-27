@@ -9,7 +9,25 @@ package Main;
  * @author ZBOOK
  */
 public class Course {
-    int MinStudentLevel;
     String name;
+    String id;
+    int MinStudentLevel;
     int CreditHours;
+    public String getCode(){
+        return id;
+    }
+    Course(){
+
+    }
+    Course(String n , int l , int ch){
+        name = n;
+        MinStudentLevel = l;
+        CreditHours = ch;
+
+    }
+    @Override
+    public String toString() {
+        return "Course{" + "MinStudentLevel=" + MinStudentLevel + ", name=" + name + ", code=" + id + ", CreditHours=" + CreditHours + '}';
+    }
 }
+
